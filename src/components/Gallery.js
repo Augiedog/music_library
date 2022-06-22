@@ -7,7 +7,7 @@ function Gallery(props) {
         )
     })
     return (
-        <div> 
+        <div className="gallery"> 
             {display}
         </div>
     )
