@@ -16,7 +16,7 @@ function GalleryItem(props) {
         'backgroundImage': `url(${props.item.artworkUrl100})`,
         'backgroundRepeat': 'no-repeat',
         'backgroundSize': 'cover',
-        'color': 'yellow'
+        'color': 'blue'
     }
     
     let [view, setView] = useState(false)
