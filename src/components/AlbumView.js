@@ -29,9 +29,9 @@ function AlbumView() {
 
     const display = songs.map(song => {
         return (
-            <div key={song.trackId}>
+            <li key={song.trackId}>
                 <p>{song.trackName}</p>
-            </div>
+            </li>
         )
     })
 
@@ -40,7 +40,7 @@ function AlbumView() {
             {navButtons()}
             <h2>{id}</h2>
             <p>Here are the songs, from the album.</p>
-            {display}
+            <ol>{display}</ol>
         </>
     )
 }

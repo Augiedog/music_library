@@ -42,7 +42,7 @@ function ArtistView() {
         <>
             {navButtons()}
             <h2>{id}</h2>
-            <p>Here are the albums by the artist</p>
+            <p>Here are the albums, by the artist</p>
             {display}
         </>
     )
