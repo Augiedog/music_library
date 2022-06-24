@@ -9,20 +9,19 @@ function ArtistView() {
 
     const display = albums.map((album) => {
         return (
-            <>
-                <Link to={`/album/${album.collectionId}`} key={album.collectionId}>
+            <div key={album.collectionId}>
+                <Link to={`/album/${album.collectionId}`}>
                     <p>{album.collectionName}</p>
                 </Link>
-            </>
+            </div>
         )
     })
 
     useEffect(() => {
-        const API_URL = `http://localhost:4000/album/${id}`
+        const API_URL = `http://192.168.0.29:4000/album/${id}`
         const fetchData = async () => {
             const response = await fetch(API_URL)
             const resData = await response.json()
-            console.log(resData)
             setArtistData(resData.results)
         }
         fetchData()
