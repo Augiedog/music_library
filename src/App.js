@@ -4,6 +4,7 @@ import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
 import ArtistView from './components/ArtistView'
 import AlbumView from './components/AlbumView'
+import { DataContext } from './DataContext'
 
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
         </Routes>  
       </Router>
       
+      <DataContext.Provider value={data}>
+        <Gallery />
+      </DataContext.Provider>
     </div>
   );
 }
