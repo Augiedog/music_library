@@ -24,8 +24,9 @@ function GalleryItem(props) {
     const simpleView = () => {
         return (
             <div style={simpleStyle}>
-                <h3>{props.item.trackName}</h3>
-                <h4>{props.item.collectionName}</h4>
+                <h3>{props.item.artistName}</h3>
+                <h4>{props.item.trackName}</h4>
+                <h5>{props.item.collectionName}</h5>
             </div>
         )
     }
@@ -36,7 +37,7 @@ function GalleryItem(props) {
                 <h2>{props.item.trackName}</h2>
                 <h3><Link to={`/artist/${props.item.artistId}`}>{props.item.artistName}</Link></h3>
                 <h4><Link to={`/album/${props.item.collectionId}`}>{props.item.collectionName}</Link></h4>
-                <h4>{props.item.primaryGenraName}</h4>
+                <h4>{props.item.primaryGenreName}</h4>
                 <h4>{props.item.releaseDate}</h4>
             </div>
         )
