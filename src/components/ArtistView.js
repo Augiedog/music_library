@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import { DataContext } from '../context/DataContext'
+
 
 function ArtistView() {
     const { id } = useParams()
     const [ artistData, setArtistData ] = useState([])
+    const data = useContext(DataContext)
+    console.log(data)
 
     const albums = artistData.filter(data => data.collectionType === "Album")
 
@@ -13,6 +17,8 @@ function ArtistView() {
                 <Link to={`/album/${album.collectionId}`}>
                     <p>{album.collectionName}</p>
                 </Link>
+                <p>Price {album.collectionPrice}</p>
+                <p>Track count {album.trackCount}</p>
             </div>
         )
     })
@@ -24,6 +30,7 @@ function ArtistView() {
             const resData = await response.json()
             setArtistData(resData.results)
         }
+        
         fetchData()
     }, [id])
 

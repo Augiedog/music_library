@@ -42,7 +42,10 @@ function App() {
           <Route path='/' element={
             <Fragment>
               <SearchBar handleSearch={handleSearch} />
-              <Gallery data={data} />
+              
+              <DataContext.Provider value={data}>
+                <Gallery data={data} />
+              </DataContext.Provider>
             </Fragment>
           } />
           <Route path='/artist/:id' element={<ArtistView data={data} />} />
