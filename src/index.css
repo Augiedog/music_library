@@ -1,6 +1,6 @@
-/* * {
+* {
   border: 1px solid teal;
-} */
+}
 body {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 ol {
-  width: 25%;
+  width: 15%;
   text-align: center;
 }
 li {

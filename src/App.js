@@ -36,15 +36,14 @@ function App() {
 
   return (
     <div className="App">      
-      {message}
       <Router>
         <Routes>
           <Route path='/' element={
             <Fragment>
               <SearchBar handleSearch={handleSearch} />
-              
+              {message}
               <DataContext.Provider value={data}>
-                <Gallery data={data} />
+                <Gallery />
               </DataContext.Provider>
             </Fragment>
           } />
@@ -52,7 +51,6 @@ function App() {
           <Route path='/album/:id' element={<AlbumView data={data}/>} />          
         </Routes>  
       </Router>
-      
     </div>
   );
 }

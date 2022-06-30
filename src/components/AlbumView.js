@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import NavButtons from './NavButtons'
 
 function AlbumView() {
     const { id } = useParams()
@@ -15,16 +16,6 @@ function AlbumView() {
         fetchData()
     }, [id])
 
-    const navigate = useNavigate()
-
-    const navButtons = () => {
-        return (
-            <>
-                <button onClick={() => navigate(-1)}>Back</button>
-                <button onClick={() => navigate('/')}>Home</button>
-            </>
-        )
-    }
     const songs = albumData.filter(data => data.wrapperType === 'track')
 
     const display = songs.map(song => {
@@ -37,7 +28,7 @@ function AlbumView() {
 
     return (
         <>
-            {navButtons()}
+            <NavButtons />
             <h2>{id}</h2>
             <p>Here are the songs, from the album.</p>
             <ol>{display}</ol>

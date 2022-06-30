@@ -1,16 +1,15 @@
-import { useState, useEffect, useContext } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
-import { DataContext } from '../context/DataContext'
+import { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import NavButtons from './NavButtons'
 
 
 function ArtistView() {
     const { id } = useParams()
     const [ artistData, setArtistData ] = useState([])
-    const data = useContext(DataContext)
-    console.log(data)
+        
 
     const albums = artistData.filter(data => data.collectionType === "Album")
-
+    console.log(artistData, albums)
     const display = albums.map((album) => {
         return (
             <div key={album.collectionId}>
@@ -30,25 +29,13 @@ function ArtistView() {
             const resData = await response.json()
             setArtistData(resData.results)
         }
-        
         fetchData()
     }, [id])
 
-    const navigate = useNavigate()
-
-    const navButtons = () => {
-        return (
-            <>
-                <button onClick={() => navigate(-1)}>Back</button>
-                <button onClick={() => navigate('/')}>Home</button>
-            </>
-        )
-    }
-
     return (
         <>
-            {navButtons()}
-            <h2>{id}</h2>
+            <NavButtons />
+            <h2>{albums.artistName}</h2>
             <p>Here are the albums, by the artist</p>
             {display}
         </>
